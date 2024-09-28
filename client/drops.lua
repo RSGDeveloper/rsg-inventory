@@ -109,7 +109,7 @@ end)
 CreateThread(function()
     while true do
         if holdingDrop then
-            if IsControlJustPressed(0, 47) then
+            if IsControlJustPressed(0, 0x760A9C6F) then
                 DetachEntity(bagObject, true, true)
                 local coords = GetEntityCoords(PlayerPedId())
                 local forward = GetEntityForwardVector(PlayerPedId())
