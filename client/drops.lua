@@ -78,7 +78,9 @@ RegisterNetEvent('rsg-inventory:client:setupDropTarget', function(dropId)
                     bagObject = bag
                     holdingDrop = true
                     heldDrop = newDropId
-                    exports['rsg-core']:DrawText('Press [G] to drop the bag')
+
+                    RSGCore.Functions.Notify("Press [G] to drop the bag", "info", 5500)
+                    -- exports['rsg-core']:DrawText('Press [G] to drop the bag')
                 end,
             }
         },
