@@ -15,8 +15,8 @@ Config = {
     },
 
     Keybinds = {
-        Open = 'TAB',
-        Hotbar = 'Z',
+        Open = 0xB238FE0B, -- 'TAB',
+        Hotbar = 0x26E9DC00, -- 'Z',
     },
 
     CleanupDropTime = 15,    -- in minutes
@@ -30,14 +30,14 @@ Config = {
     },
 
     VendingObjects = {
-        'prop_vend_soda_01',
-        'prop_vend_soda_02',
-        'prop_vend_water_01',
-        'prop_vend_coffe_01',
+        's_inv_whiskey02x',
+        'p_whiskeycrate01x',
+        'p_bal_whiskeycrate01',
+        'p_whiskeybarrel01x',
     },
 
     VendingItems = {
-        { name = 'kurkakola',    price = 4, amount = 50 },
-        { name = 'water_bottle', price = 4, amount = 50 },
+        { name = 'consumable_water_filtered',    price = 4, amount = 50 },
+        { name = 'consumable_bread_roll', price = 4, amount = 50 },
     },
 }
