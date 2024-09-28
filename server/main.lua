@@ -265,13 +265,13 @@ RegisterNetEvent('rsg-inventory:server:updateDrop', function(dropId, coords)
     Drops[dropId].coords = coords
 end)
 
-RegisterNetEvent('rsg-inventory:server:snowball', function(action)
-    if action == 'add' then
-        AddItem(source, 'weapon_snowball', 1, false, false, 'rsg-inventory:server:snowball')
-    elseif action == 'remove' then
-        RemoveItem(source, 'weapon_snowball', 1, false, 'rsg-inventory:server:snowball')
-    end
-end)
+-- RegisterNetEvent('rsg-inventory:server:snowball', function(action)
+--     if action == 'add' then
+--         AddItem(source, 'weapon_snowball', 1, false, false, 'rsg-inventory:server:snowball')
+--     elseif action == 'remove' then
+--         RemoveItem(source, 'weapon_snowball', 1, false, 'rsg-inventory:server:snowball')
+--     end
+-- end)
 
 -- Callbacks
 
