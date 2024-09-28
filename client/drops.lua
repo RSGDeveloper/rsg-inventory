@@ -57,7 +57,8 @@ RegisterNetEvent('rsg-inventory:client:setupDropTarget', function(dropId)
                 icon = 'fas fa-hand-pointer',
                 label = 'Pick up bag',
                 action = function()
-                    if IsPedArmed(PlayerPedId(), 4) then
+                    local weapon = GetPedCurrentHeldWeapon(PlayerPedId())
+                    if weapon ~= `WEAPON_UNARMED` then
                         return RSGCore.Functions.Notify("You can not be holding a Gun and a Bag!", "error", 5500)
                     end
                     if holdingDrop then
@@ -78,9 +79,7 @@ RegisterNetEvent('rsg-inventory:client:setupDropTarget', function(dropId)
                     bagObject = bag
                     holdingDrop = true
                     heldDrop = newDropId
-
-                    RSGCore.Functions.Notify("Press [G] to drop the bag", "info", 5500)
-                    -- exports['rsg-core']:DrawText('Press [G] to drop the bag')
+                    exports['rsg-core']:DrawText('Press [G] to drop the bag')
                 end,
             }
         },
