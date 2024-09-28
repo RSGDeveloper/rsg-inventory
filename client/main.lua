@@ -302,7 +302,7 @@ end, false)
 CreateThread(function()
     while true do
         Wait(0)
-        if IsControlJustReleased(0, Config.Keybinds.Open) then -- key open inventory I
+        if IsControlJustReleased(0, Config.Keybinds.Open) then
             ExecuteCommand('inventory')
         end
     end
@@ -311,7 +311,7 @@ end)
 CreateThread(function()
     while true do
         Wait(0)
-        if IsControlJustReleased(0, Config.Keybinds.Hotbar) then -- key open hotbar Z
+        if IsControlJustReleased(0, Config.Keybinds.Hotbar) then
             ExecuteCommand('hotbar')
         end
     end
@@ -328,12 +328,4 @@ for i = 1, 5 do
         end
         TriggerServerEvent('rsg-inventory:server:useItem', itemData)
     end, false)
-    --RegisterKeyMapping('slot_' .. i, Lang:t('inf_mapping.use_item') .. i, 'keyboard', i)
 end
-
-
-
---[[
-RegisterKeyMapping('openInv', Lang:t('inf_mapping.opn_inv'), 'keyboard', Config.Keybinds.Open)
-RegisterKeyMapping('toggleHotbar', Lang:t('inf_mapping.tog_slots'), 'keyboard', Config.Keybinds.Hotbar)
---]]

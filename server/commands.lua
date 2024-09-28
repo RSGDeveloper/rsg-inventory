@@ -16,21 +16,10 @@ RSGCore.Commands.Add('giveitem', 'Give An Item (Admin Only)', { { name = 'id', h
                 info.birthdate = player.PlayerData.charinfo.birthdate
                 info.gender = player.PlayerData.charinfo.gender
                 info.nationality = player.PlayerData.charinfo.nationality
-            -- elseif itemData['name'] == 'driver_license' then
-            --     info.firstname = player.PlayerData.charinfo.firstname
-            --     info.lastname = player.PlayerData.charinfo.lastname
-            --     info.birthdate = player.PlayerData.charinfo.birthdate
-            --     info.type = 'Class C Driver License'
             elseif itemData['type'] == 'weapon' then
                 amount = 1
                 info.serie = tostring(RSGCore.Shared.RandomInt(2) .. RSGCore.Shared.RandomStr(3) .. RSGCore.Shared.RandomInt(1) .. RSGCore.Shared.RandomStr(2) .. RSGCore.Shared.RandomInt(3) .. RSGCore.Shared.RandomStr(4))
                 info.quality = 100
-            -- elseif itemData['name'] == 'harness' then
-            --     info.uses = 20
-            -- elseif itemData['name'] == 'markedbills' then
-            --     info.worth = math.random(5000, 10000)
-            -- elseif itemData['name'] == 'printerdocument' then
-            --     info.url = 'https://cdn.discordapp.com/attachments/870094209783308299/870104331142189126/Logo_-_Display_Picture_-_Stylized_-_Red.png'
             end
 
             if AddItem(id, itemData['name'], amount, false, info, 'give item command') then

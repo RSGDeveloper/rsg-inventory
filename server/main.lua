@@ -210,29 +210,6 @@ RegisterNetEvent('rsg-inventory:server:useItem', function(item)
                 })
             end
         end
-    -- elseif itemData.name == 'driver_license' then
-    --     UseItem(itemData.name, src, itemData)
-    --     TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
-    --     local playerPed = GetPlayerPed(src)
-    --     local playerCoords = GetEntityCoords(playerPed)
-    --     local players = RSGCore.Functions.GetPlayers()
-    --     for _, v in pairs(players) do
-    --         local targetPed = GetPlayerPed(v)
-    --         local dist = #(playerCoords - GetEntityCoords(targetPed))
-    --         if dist < 3.0 then
-    --             TriggerClientEvent('chat:addMessage', v, {
-    --                 template = '<div class="chat-message advert" style="background: linear-gradient(to right, rgba(5, 5, 5, 0.6), #657175); display: flex;"><div style="margin-right: 10px;"><i class="far fa-id-card" style="height: 100%;"></i><strong> {0}</strong><br> <strong>First Name:</strong> {1} <br><strong>Last Name:</strong> {2} <br><strong>Birth Date:</strong> {3} <br><strong>Licenses:</strong> {4}</div></div>',
-    --                 args = {
-    --                     'Drivers License',
-    --                     item.info.firstname,
-    --                     item.info.lastname,
-    --                     item.info.birthdate,
-    --                     item.info.type
-    --                 }
-    --             }
-    --             )
-    --         end
-    --     end
     else
         UseItem(itemData.name, src, itemData)
         TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
@@ -264,14 +241,6 @@ end)
 RegisterNetEvent('rsg-inventory:server:updateDrop', function(dropId, coords)
     Drops[dropId].coords = coords
 end)
-
--- RegisterNetEvent('rsg-inventory:server:snowball', function(action)
---     if action == 'add' then
---         AddItem(source, 'weapon_snowball', 1, false, false, 'rsg-inventory:server:snowball')
---     elseif action == 'remove' then
---         RemoveItem(source, 'weapon_snowball', 1, false, 'rsg-inventory:server:snowball')
---     end
--- end)
 
 -- Callbacks
 
