@@ -1,4 +1,4 @@
-# warning
+# WARNING!
 - DEVELOPER VERSION ONLY DO NOT USE ON A PRODUCTION SERVER!
 
 # rsg-inventory
