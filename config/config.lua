@@ -22,7 +22,7 @@ Config = {
     CleanupDropTime = 15,    -- in minutes
     CleanupDropInterval = 1, -- in minutes
 
-    ItemDropObject = 'p_bag01x',
+    ItemDropObject = `p_bag01x`,
     ItemDropObjectBone = 28422,
     ItemDropObjectOffset = {
         vector3(0.260000, 0.040000, 0.000000),
