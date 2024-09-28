@@ -300,7 +300,7 @@ end, false)
 CreateThread(function()
     while true do
         Wait(0)
-        if IsControlJustReleased(0, 0xC1989F95) then -- key open inventory I
+        if IsControlJustReleased(0, Config.Keybinds.Open) then -- key open inventory I
             ExecuteCommand('inventory')
         end
     end
@@ -309,7 +309,7 @@ end)
 CreateThread(function()
     while true do
         Wait(0)
-        if IsControlJustReleased(0, 0x26E9DC00) then -- key open hotbar Z
+        if IsControlJustReleased(0, Config.Keybinds.Hotbar) then -- key open hotbar Z
             ExecuteCommand('hotbar')
         end
     end
