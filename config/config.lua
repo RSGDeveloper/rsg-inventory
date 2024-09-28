@@ -15,7 +15,7 @@ Config = {
     },
 
     Keybinds = {
-        Open = 0xB238FE0B, -- 'TAB',
+        Open = 0xC1989F95, -- 'I',
         Hotbar = 0x26E9DC00, -- 'Z',
     },
 
