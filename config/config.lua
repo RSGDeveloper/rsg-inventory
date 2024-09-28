@@ -26,7 +26,7 @@ Config = {
     ItemDropObjectBone = 28422,
     ItemDropObjectOffset = {
         vector3(0.260000, 0.040000, 0.000000),
-        vector3(90.000000, 0.000000, -78.989998),
+        vector3(0.000000, 0.000000, -78.989998),
     },
 
     VendingObjects = {
