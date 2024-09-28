@@ -291,17 +291,9 @@ RSGCore.Functions.CreateCallback('rsg-inventory:server:createDrop', function(sou
     if RemoveItem(src, item.name, item.amount, item.fromSlot, 'dropped item') then
         if item.type == 'weapon' then checkWeapon(src, item) end
         TaskPlayAnim(playerPed, 'pickup_object', 'pickup_low', 8.0, -8.0, 2000, 0, 0, false, false, false)
-        -- test
-        local model = GetHashKey(Config.ItemDropObject)
-        RequestModel(model)
-        while not HasModelLoaded(joaat(model) do
-            Wait(1)
-        end
-        local bag = CreateObjectNoOffset(model, playerCoords.x + 0.5, playerCoords.y + 0.5, playerCoords.z, true, true, false)
+        local bag = CreateObjectNoOffset(Config.ItemDropObject, playerCoords.x + 0.5, playerCoords.y + 0.5, playerCoords.z, true, true, false)
         while not DoesEntityExist(bag) do Wait(0) end
-        local dropId = NetworkGetNetworkIdFromEntity(bag)
-        print(dropId)
-        --        
+        local dropId = NetworkGetNetworkIdFromEntity(bag)   
         local newDropId = 'drop-' .. dropId
         local itemsTable = setmetatable({ item }, {
             __len = function(t)
