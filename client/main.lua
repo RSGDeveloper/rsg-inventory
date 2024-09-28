@@ -276,8 +276,10 @@ CreateThread(function()
     exports['rsg-target']:AddTargetModel(Config.VendingObjects, {
         options = {
             {
-                type = 'server',
-                event = 'rsg-inventory:server:openVending',
+
+                action = function()
+                    TriggerSeverEvent('rsg-inventory:server:openVending')
+                end,
                 icon = 'fa-solid fa-cash-register',
                 label = Lang:t('menu.vending'),
             },
