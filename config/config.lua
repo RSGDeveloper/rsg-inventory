@@ -30,10 +30,10 @@ Config = {
     },
 
     VendingObjects = {
-        's_inv_whiskey02x',
-        'p_whiskeycrate01x',
-        'p_bal_whiskeycrate01',
-        'p_whiskeybarrel01x',
+        `s_inv_whiskey02x`,
+        `p_whiskeycrate01x`,
+        `p_bal_whiskeycrate01`,
+        `p_whiskeybarrel01x`,
     },
 
     VendingItems = {
