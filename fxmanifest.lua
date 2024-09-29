@@ -16,8 +16,7 @@ shared_scripts {
 
 client_scripts {
     'client/main.lua',
-    'client/drops.lua',
-    'client/vehicles.lua',
+    'client/drops.lua'
 }
 
 server_scripts {
