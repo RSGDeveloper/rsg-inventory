@@ -185,31 +185,6 @@ RegisterNetEvent('rsg-inventory:server:useItem', function(item)
     if itemData.type == 'weapon' then
         TriggerClientEvent('rsg-weapons:client:UseWeapon', src, itemData, itemData.info.quality and itemData.info.quality > 0)
         TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
-    elseif itemData.name == 'id_card' then
-        UseItem(itemData.name, src, itemData)
-        TriggerClientEvent('rsg-inventory:client:ItemBox', source, itemInfo, 'use')
-        local playerPed = GetPlayerPed(src)
-        local playerCoords = GetEntityCoords(playerPed)
-        local players = RSGCore.Functions.GetPlayers()
-        local gender = item.info.gender == 0 and 'Male' or 'Female'
-        for _, v in pairs(players) do
-            local targetPed = GetPlayerPed(v)
-            local dist = #(playerCoords - GetEntityCoords(targetPed))
-            if dist < 3.0 then
-                TriggerClientEvent('chat:addMessage', v, {
-                    template = '<div class="chat-message advert" style="background: linear-gradient(to right, rgba(5, 5, 5, 0.6), #74807c); display: flex;"><div style="margin-right: 10px;"><i class="far fa-id-card" style="height: 100%;"></i><strong> {0}</strong><br> <strong>Civ ID:</strong> {1} <br><strong>First Name:</strong> {2} <br><strong>Last Name:</strong> {3} <br><strong>Birthdate:</strong> {4} <br><strong>Gender:</strong> {5} <br><strong>Nationality:</strong> {6}</div></div>',
-                    args = {
-                        'ID Card',
-                        item.info.citizenid,
-                        item.info.firstname,
-                        item.info.lastname,
-                        item.info.birthdate,
-                        gender,
-                        item.info.nationality
-                    }
-                })
-            end
-        end
     else
         UseItem(itemData.name, src, itemData)
         TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
