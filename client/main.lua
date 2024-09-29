@@ -278,7 +278,7 @@ CreateThread(function()
             {
 
                 action = function()
-                    TriggerSeverEvent('rsg-inventory:server:openVending')
+                    TriggerServerEvent('rsg-inventory:server:openVending')
                 end,
                 icon = 'fa-solid fa-cash-register',
                 label = Lang:t('menu.vending'),
@@ -291,19 +291,29 @@ end)
 -- Commands
 
 RegisterCommand('openInv', function()
+    local PlayerData = RSGCore.Functions.GetPlayerData()
     if IsNuiFocused() or IsPauseMenuActive() then return end
+    if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
     ExecuteCommand('inventory')
+    end
 end, false)
 
 RegisterCommand('toggleHotbar', function()
+    local PlayerData = RSGCore.Functions.GetPlayerData()
+    if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
     ExecuteCommand('hotbar')
+    end
 end, false)
 
 CreateThread(function()
     while true do
         Wait(0)
+        local PlayerData = RSGCore.Functions.GetPlayerData()
+
         if IsControlJustReleased(0, Config.Keybinds.Open) then
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
             ExecuteCommand('inventory')
+            end
         end
     end
 end)
@@ -311,8 +321,11 @@ end)
 CreateThread(function()
     while true do
         Wait(0)
+        local PlayerData = RSGCore.Functions.GetPlayerData()
         if IsControlJustReleased(0, Config.Keybinds.Hotbar) then
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
             ExecuteCommand('hotbar')
+            end
         end
     end
 end)
