@@ -179,12 +179,23 @@ end)
 
 RegisterNetEvent('rsg-inventory:server:useItem', function(item)
     local src = source
+    local Player = RSGCore.Functions.GetPlayer(src)
+    if not Player then return false end
     local itemData = GetItemBySlot(src, item.slot)
     if not itemData then return end
     local itemInfo = RSGCore.Shared.Items[itemData.name]
     if itemData.type == 'weapon' then
-        TriggerClientEvent('rsg-weapons:client:UseWeapon', src, itemData, itemData.info.quality and itemData.info.quality > 0)
-        TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
+        local result = MySQL.Sync.fetchAll('SELECT * FROM player_weapons WHERE serial = @serial and citizenid = @citizenid',{ serial = itemData.info.serie, citizenid = Player.PlayerData.citizenid })
+        if result[1] == nil then
+            local params = { serial = itemData.info.serie, citizenid = Player.PlayerData.citizenid }
+            MySQL.Sync.execute("INSERT INTO player_weapons (serial, citizenid) values (@serial, @citizenid)", params)
+            Wait(1000)
+            TriggerClientEvent('rsg-weapons:client:UseWeapon', src, itemData, itemData.info.quality and itemData.info.quality > 0)
+            TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
+        else
+            TriggerClientEvent('rsg-weapons:client:UseWeapon', src, itemData, itemData.info.quality and itemData.info.quality > 0)
+            TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
+        end
     else
         UseItem(itemData.name, src, itemData)
         TriggerClientEvent('rsg-inventory:client:ItemBox', src, itemInfo, 'use')
