@@ -317,6 +317,51 @@ CreateThread(function()
     end
 end)
 
+-- hotbar slot commands
+CreateThread(function()
+    while true do
+        Wait(0)
+
+        DisableControlAction(0, RSGCore.Shared.Keybinds['1'])
+        DisableControlAction(0, RSGCore.Shared.Keybinds['2'])
+        DisableControlAction(0, RSGCore.Shared.Keybinds['3'])
+        DisableControlAction(0, RSGCore.Shared.Keybinds['4'])
+        DisableControlAction(0, RSGCore.Shared.Keybinds['5'])
+
+        if IsDisabledControlPressed(0, RSGCore.Shared.Keybinds['1']) and IsInputDisabled(0) then  -- 1  slot
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
+                ExecuteCommand('slot_1')
+            end
+        end
+
+        if IsDisabledControlPressed(0, RSGCore.Shared.Keybinds['2']) and IsInputDisabled(0) then  -- 2 slot
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
+                ExecuteCommand('slot_2')
+            end
+        end
+
+        if IsDisabledControlPressed(0, RSGCore.Shared.Keybinds['3']) and IsInputDisabled(0) then -- 3 slot
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
+                ExecuteCommand('slot_3')
+            end
+        end
+
+        if IsDisabledControlPressed(0, RSGCore.Shared.Keybinds['4']) and IsInputDisabled(0) then  -- 4 slot
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
+                ExecuteCommand('slot_4')
+            end
+        end
+
+        if IsDisabledControlPressed(0, RSGCore.Shared.Keybinds['5']) and IsInputDisabled(0) then -- 5 slot
+            if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
+                ExecuteCommand('slot_5')
+            end
+        end
+
+    end
+end)
+
+-- execute slot commands
 for i = 1, 5 do
     RegisterCommand('slot_' .. i, function()
         local itemData = PlayerData.items[i]
