@@ -294,14 +294,14 @@ RegisterCommand('openInv', function()
     local PlayerData = RSGCore.Functions.GetPlayerData()
     if IsNuiFocused() or IsPauseMenuActive() then return end
     if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
-    ExecuteCommand('inventory')
+        ExecuteCommand('inventory')
     end
 end, false)
 
 RegisterCommand('toggleHotbar', function()
     local PlayerData = RSGCore.Functions.GetPlayerData()
     if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
-    ExecuteCommand('hotbar')
+        ExecuteCommand('hotbar')
     end
 end, false)
 
@@ -312,7 +312,7 @@ CreateThread(function()
 
         if IsControlJustReleased(0, Config.Keybinds.Open) then
             if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
-            ExecuteCommand('inventory')
+                ExecuteCommand('inventory')
             end
         end
     end
@@ -324,7 +324,7 @@ CreateThread(function()
         local PlayerData = RSGCore.Functions.GetPlayerData()
         if IsControlJustReleased(0, Config.Keybinds.Hotbar) then
             if not PlayerData.metadata["isdead"] and not PlayerData.metadata["ishandcuffed"] then
-            ExecuteCommand('hotbar')
+                ExecuteCommand('hotbar')
             end
         end
     end
