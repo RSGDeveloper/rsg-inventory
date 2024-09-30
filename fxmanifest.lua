@@ -33,6 +33,7 @@ files {
     'html/main.css',
     'html/app.js',
     'html/images/*.png',
+    'html/*.png',
 }
 
---dependency 'qb-weapons'
+dependency 'rsg-weapons'

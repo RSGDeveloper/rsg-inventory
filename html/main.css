@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+@import url('https://fonts.cdnfonts.com/css/kirsty-2');
+@import url('https://fonts.cdnfonts.com/css/chinese-rocks');
 
 body {
     margin: 0;
 }
 
 div {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Chinese Rocks Rg", sans-serif;
+	letter-spacing: 1px;
 }
 
 ::-webkit-scrollbar {
@@ -38,6 +41,9 @@ div {
     overflow-x: hidden;
     overflow-y: scroll;
     transform: translateY(-50%);
+    background-image: url(./inventorybg.png);
+    background-size: 100% 100%;
+	opacity: 90%;
 }
 
 .player-inventory-header {
@@ -69,6 +75,9 @@ div {
     overflow-x: hidden;
     overflow-y: scroll;
     transform: translateY(-50%);
+    background-image: url(./inventorybg.png);
+    background-size: 100% 100%;
+	opacity: 90%;
 }
 
 .other-inventory-header {
@@ -112,10 +121,15 @@ div {
 .labels-container {
     display: flex;
     width: 100%;
+    background-image: url(./inventoryheader.png);
+    background-size: 100% 100%;
 }
 
 .inventory-label {
     flex-grow: 1;
+	margin-left: 10px;
+	margin-right: 10px;
+	letter-spacing: 2px;
 }
 
 .item-grid {
@@ -133,7 +147,7 @@ div {
     justify-content: center;
     width: calc(20% - 2px);
     height: 10vh;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgb(38 35 35 / 30%);
 }
 
 .item-slot-img {
@@ -222,15 +236,15 @@ div {
 }
 
 .item-slot-durability-fill.high {
-    background-color: green;
+    background-color: #2a6433;
 }
 
 .item-slot-durability-fill.medium {
-    background-color: yellow;
+    background-color: #a98323;
 }
 
 .item-slot-durability-fill.low {
-    background-color: red;
+    background-color: #a92323;
 }
 
 .item-slot-label > p {
@@ -245,7 +259,8 @@ div {
 
 .current-weight > p {
     text-align: right;
-    padding-right: 5px;
+    padding-right: 10px;
+	letter-spacing: 2px;
 }
 
 .weight-bar {
@@ -259,15 +274,15 @@ div {
 }
 
 .weight-bar-fill.low {
-    background-color: green;
+    background-color: #2a6433;
 }
 
 .weight-bar-fill.medium {
-    background-color: yellow;
+    background-color: #a98323;
 }
 
 .weight-bar-fill.high {
-    background-color: red;
+    background-color: #a92323;
 }
 
 /* Hotbar */
@@ -406,7 +421,7 @@ div {
     top: calc(26% + ((47.16% - 3vh) / 2));
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: #2c2c2c;
+    background-color: #2c2c2c33;
     border-radius: 4px;
     padding: 10px;
     display: flex;
@@ -414,6 +429,8 @@ div {
     align-items: center;
     justify-content: center;
     box-shadow: 0 0 0 1px rgb(255 255 255 / 8%), 0 2px 2px rgb(0 0 0 / 3%), 0 4px 4px rgb(0 0 0 / 4%), 0 10px 8px rgb(0 0 0 / 5%), 0 15px 15px rgb(0 0 0 / 6%), 0 30px 30px rgb(0 0 0 / 7%), 0 70px 65px rgb(0 0 0 / 9%);
+    background-image: url(./inventoryheader.png);
+    background-size: 100% 100%;
 }
 
 .input-wrapper {
@@ -430,6 +447,8 @@ div {
     outline: none;
     text-align: center;
     flex: 1;
+    font-family: "Chinese Rocks Rg", sans-serif;
+	letter-spacing: 0.5px;
 }
 
 .clear-button {
