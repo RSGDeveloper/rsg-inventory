@@ -64,8 +64,10 @@ RegisterNetEvent('rsg-inventory:client:setupDropTarget', function(dropId)
                     if holdingDrop then
                         return RSGCore.Functions.Notify("Your already holding a bag, Go Drop it!", "error", 5500)
                     end
+					Citizen.InvokeNative(0x524B54361229154F, PlayerPedId(), GetHashKey("RANSACK_FALLBACK_PICKUP_CROUCH"), 0, 1, GetHashKey("RANSACK_PICKUP_H_0m0_FALLBACK_CROUCH"), -1.0, 0)
+					Wait(1000)
                     local boneIndex = GetEntityBoneIndexByName(PlayerPedId(), Config.ItemDropObjectBone)
-                    AttachEntityToEntity(
+					AttachEntityToEntity(
                         bag,
                         PlayerPedId(),
                         boneIndex,
@@ -93,10 +95,16 @@ end)
 RegisterNUICallback('DropItem', function(item, cb)
     RSGCore.Functions.TriggerCallback('rsg-inventory:server:createDrop', function(dropId)
         if dropId then
+			Citizen.InvokeNative(0x524B54361229154F, PlayerPedId(), GetHashKey("RANSACK_FALLBACK_PICKUP_CROUCH"), 0, 1, GetHashKey("RANSACK_PICKUP_H_0m0_FALLBACK_CROUCH"), -1.0, 0)
             while not NetworkDoesNetworkIdExist(dropId) do Wait(10) end
             local bag = NetworkGetEntityFromNetworkId(dropId)
-            SetModelAsNoLongerNeeded(bag)
-            PlaceObjectOnGroundProperly(bag)
+			SetModelAsNoLongerNeeded(bag)
+			local coords = GetEntityCoords(PlayerPedId())
+			local forward = GetEntityForwardVector(PlayerPedId())
+			local x, y, z = table.unpack(coords + forward * 0.57)
+			SetEntityCoords(bag, x, y, z - 0.9, false, false, false, false)
+			SetEntityRotation(bag, 0.0, 0.0, 0.0, 2)
+			PlaceObjectOnGroundProperly(bag)
             FreezeEntityPosition(bag, true)
             local newDropId = 'drop-' .. dropId
             cb(newDropId)
@@ -112,11 +120,15 @@ CreateThread(function()
     while true do
         if holdingDrop then
             if IsControlJustPressed(0, 0x760A9C6F) then
+				Citizen.InvokeNative(0x524B54361229154F, PlayerPedId(), GetHashKey("RANSACK_FALLBACK_PICKUP_CROUCH"), 0, 1, GetHashKey("RANSACK_PICKUP_H_0m0_FALLBACK_CROUCH"), -1.0, 0)
+				Wait(1000)
                 DetachEntity(bagObject, true, true)
                 local coords = GetEntityCoords(PlayerPedId())
                 local forward = GetEntityForwardVector(PlayerPedId())
                 local x, y, z = table.unpack(coords + forward * 0.57)
                 SetEntityCoords(bagObject, x, y, z - 0.9, false, false, false, false)
+				SetEntityRotation(bagObject, 0.0, 0.0, 0.0, 2)
+				PlaceObjectOnGroundProperly(bagObject)
                 FreezeEntityPosition(bagObject, true)
                 exports['rsg-core']:HideText()
                 TriggerServerEvent('rsg-inventory:server:updateDrop', heldDrop, coords)
