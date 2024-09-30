@@ -25,8 +25,8 @@ Config = {
     ItemDropObject = `p_bag01x`,
     ItemDropObjectBone = "SKEL_R_Finger00",
     ItemDropObjectOffset = {
-        vector3(0.260000, 0.040000, 0.000000),
-        vector3(0.000000, 0.000000, -78.989998),
+        vector3(0.380000, -0.04000, -0.0300000),
+        vector3(-5.000000, -95.000000, -90.000),
     },
 
     VendingObjects = {
