@@ -64,10 +64,11 @@ RegisterNetEvent('rsg-inventory:client:setupDropTarget', function(dropId)
                     if holdingDrop then
                         return RSGCore.Functions.Notify("Your already holding a bag, Go Drop it!", "error", 5500)
                     end
+                    local boneIndex = GetEntityBoneIndexByName(PlayerPedId(), Config.ItemDropObjectBone)
                     AttachEntityToEntity(
                         bag,
                         PlayerPedId(),
-                        GetPedBoneIndex(PlayerPedId(), Config.ItemDropObjectBone),
+                        boneIndex,
                         Config.ItemDropObjectOffset[1].x,
                         Config.ItemDropObjectOffset[1].y,
                         Config.ItemDropObjectOffset[1].z,
